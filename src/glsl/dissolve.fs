@@ -36,5 +36,5 @@ void main(void) {
   float step = ease(min((time), 1.0));
 
   gl_FragColor = colorPrev * smoothstep(step - (prevEdgeStart + prevEdgeWidth), step - prevEdgeStart, noise)
-      + colorNext * smoothstep((1.0 - step) - (nextEdgeStart + nextEdgeWidth), (1.0 - step) - nextEdgeStart, (1.0 - noise));
+    + colorNext * smoothstep((1.0 - step) - (nextEdgeStart + nextEdgeWidth), (1.0 - step) - nextEdgeStart, (1.0 - noise));
 }

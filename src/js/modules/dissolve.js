@@ -4,7 +4,7 @@ export default class Dissolve {
   constructor() {
     this.uniforms = {};
     this.textures = [];
-    this.interval = 4;
+    this.interval = 3;
     this.noise = { x: 8, y: 6, z: 4 };
     this.edge = {
       prev_start: 0.01,
@@ -27,7 +27,7 @@ export default class Dissolve {
         texture.minFilter = THREE.NearestFilter;
         this.textures[index] = texture;
         count++;
-        if (count === images.length) {
+        if (count == images.length) {
           this.mesh = this.createMesh();
           callback();
         }
@@ -105,7 +105,7 @@ export default class Dissolve {
       this.uniforms.time.value = 0;
       this.prev_num = this.next_num;
       this.uniforms.texPrev.value = this.textures[this.next_num];
-      while (this.next_num === this.prev_num) {
+      while (this.next_num == this.prev_num) {
         this.next_num = Math.floor(Math.random() * this.textures.length);
       }
       this.uniforms.texNext.value = this.textures[this.next_num];

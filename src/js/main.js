@@ -9,7 +9,7 @@ const renderer = new THREE.WebGLRenderer({
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 10000);
 const clock = new THREE.Clock();
-const stats = new Stats();
+var stats = new Stats();
 
 const images = [
   'img/japan01.jpg',
@@ -40,10 +40,10 @@ const initDatGui = () => {
     noiseX: gui.add(dissolve.noise, 'x', 0, 100).name('noise x'),
     noiseY: gui.add(dissolve.noise, 'y', 0, 100).name('noise y'),
     noiseZ: gui.add(dissolve.noise, 'z', 0, 100).name('noise z'),
-    prevEdgeStart: gui.add(dissolve.edge, 'prev_start', 0, 0.2).name('prev edge start').step(0.001),
-    prevEdgeWidth: gui.add(dissolve.edge, 'prev_width', 0, 0.2).name('prev edge width').step(0.001),
-    nextEdgeStart: gui.add(dissolve.edge, 'next_start', 0, 0.2).name('next edge start').step(0.001),
-    nextEdgeWidth: gui.add(dissolve.edge, 'next_width', 0, 0.2).name('next edge width').step(0.001),
+    prevEdgeStart: gui.add(dissolve.edge, 'prev_start', 0, 0.1).name('prev edge start').step(0.001),
+    prevEdgeWidth: gui.add(dissolve.edge, 'prev_width', 0, 0.1).name('prev edge width').step(0.001),
+    nextEdgeStart: gui.add(dissolve.edge, 'next_start', 0, 0.1).name('next edge start').step(0.001),
+    nextEdgeWidth: gui.add(dissolve.edge, 'next_width', 0, 0.1).name('next edge width').step(0.001),
     stop: gui.add(dissolve, 'stop').name('stop animation'),
   }
   controller.time.onChange((value) => {
@@ -73,7 +73,7 @@ const initDatGui = () => {
 }
 const initStats = () => {
   stats.showPanel(0);
-  document.body.appendChild(stats.dom);
+  //document.body.appendChild(stats.dom);
 }
 const render = () => {
   dissolve.render(clock.getDelta());
