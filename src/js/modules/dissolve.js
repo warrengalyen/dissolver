@@ -3,8 +3,9 @@ const glslify = require('glslify');
 export default class Dissolve {
   constructor() {
     this.uniforms = {};
-    this.textures = {};
+    this.textures = [];
     this.interval = 4;
+    this.noise = { x: 8, y: 6, z: 0 };
     this.prev_num = 0;
     this.next_num = 1;
     this.mesh = null;
@@ -50,7 +51,19 @@ export default class Dissolve {
       },
       texNext: {
         type: 't',
-        value: this.textures[1]
+        value: this.textures[1],
+      },
+      noiseX: {
+        type: 'f',
+        value: this.noise.x
+      },
+      noiseY: {
+        type: 'f',
+        value: this.noise.y
+      },
+      noiseZ: {
+        type: 'f',
+        value: this.noise.z
       },
     };
     return new THREE.Mesh(
