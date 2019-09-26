@@ -4,6 +4,7 @@ const canvas = document.getElementById('canvas-webgl');
 const renderer = new THREE.WebGLRenderer({
   antialias: true,
   canvas: canvas,
+  alpha: true,
 });
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 10000);
@@ -43,6 +44,7 @@ const initDatGui = () => {
     prevEdgeWidth: gui.add(dissolve.edge, 'prev_width', 0, 0.2).name('prev edge width').step(0.001),
     nextEdgeStart: gui.add(dissolve.edge, 'next_start', 0, 0.2).name('next edge start').step(0.001),
     nextEdgeWidth: gui.add(dissolve.edge, 'next_width', 0, 0.2).name('next edge width').step(0.001),
+    stop: gui.add(dissolve, 'stop').name('stop animation'),
   }
   controller.time.onChange((value) => {
     dissolve.uniforms.interval.value = value;
@@ -85,7 +87,7 @@ const renderLoop = () => {
 }
 const init = () => {
   renderer.setSize(window.innerWidth, window.innerHeight);
-  renderer.setClearColor(0xffffff, 1.0);
+  renderer.setClearColor(0xffffff, 0.0);
 
   dissolve.loadTexture(images, () => {
     scene.add(dissolve.mesh);
