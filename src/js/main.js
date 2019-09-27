@@ -73,7 +73,7 @@ const initDatGui = () => {
 }
 const initStats = () => {
   stats.showPanel(0);
-  //document.body.appendChild(stats.dom);
+  document.body.appendChild(stats.dom);
 }
 const render = () => {
   dissolve.render(clock.getDelta());
