@@ -23,7 +23,7 @@
     "del": "^5.1.0",
     "envify": "^4.1.0",
     "glsl-fxaa": "^3.0.0",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.0",
     "gulp-imagemin": "^6.1.0",
     "gulp-load-plugins": "^2.0.1",
